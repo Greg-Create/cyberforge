@@ -1,0 +1,29 @@
+.custom{
+    height:100vh;
+    margin-top: 5rem;
+}
+
+.custom h1{
+    color:
+}
+
+.carouselItem img{
+    height:100%;
+    width:100%;
+    border-radius: 10px;
+
+}
+
+.carouselItem{
+    height:100%;
+    margin: 0.1rem;
+    border-radius: 10px;
+}
+
+.images{
+    height:40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
