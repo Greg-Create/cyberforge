@@ -1,4 +1,5 @@
 .navbar{
+  position: relative;
     display: flex;
     flex-direction: row;
     height:15vh;
@@ -51,10 +52,22 @@
     font-weight: 500;
     padding-left: 20px;
     padding-right: 20px;
-    font-weight: 600;
+    font-weight: 700;
     transition: 200ms;
     font-family: 'Open Sans', sans-serif;
+}
+.hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
 
+
+
+.scrolled button{
+    height:60%;
 }
 
 .navbar button:hover{
@@ -70,19 +83,23 @@
 
 }
 
-.options p{
+.options a{
     display: inline-block;
   position: relative;
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
+  color: black;
+  text-decoration: none;
 }
 
-.options p:hover{
+.options a:hover{
     opacity: 0.8;
 }
 
-.options p:after {
+
+
+.options a:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -95,7 +112,69 @@
     transition: transform 0.25s ease-out;
   }
   
-  .options p:hover:after {
+  .options a:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  .sideBar{
+    position: relative;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height:100vh;
+    right:0;
+    top:0;
+    color:blue;
+    align-items: center;
+    justify-content: space-evenly;
+    width:10rem;
+    animation:slideIn 0.5s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow on scroll */
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100%{
+      transform: translateX(0);
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .options{
+     display: none;
+    }
+    .options a{
+     display: none;
+    }
+   
+   
+   
+     .hamburger-button {
+       display: block;
+     }
+
+     .contact-button{
+      display: none;
+     }
+   
+     
+   }
+
+   .close-button{
+    position:absolute;
+    height:1rem !important;
+    top:1rem;
+   }
+
+   .sideBarbtn{
+    height: 3rem !important;
+   }

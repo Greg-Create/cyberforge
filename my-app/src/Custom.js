@@ -2,6 +2,10 @@ import React from 'react'
 import "./Custom.css"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import ScrollAnimation from 'react-animate-on-scroll';
+import 'animate.css/animate.min.css';
+
+
 
 export default function Custom() {
     const responsive = {
@@ -22,16 +26,21 @@ export default function Custom() {
         }
       };
   return (
-    <div className='custom'>
-        <h1>Custom PCs</h1>
-        <p style={{marginBottom:"3rem"}}>CyberForge will work with you personally, to build your perfect PC, that fits your budget</p>
-     
-    <div className='images'>
-  <div className='carouselItem'><img src="/comp-1.jpg"/></div>
-  <div className='carouselItem'><img src="/comp-2.jpg"/></div>
-  <div className='carouselItem'><img src="/comp-3.jpg"/></div>
-  </div>
-  {/* <div className='carouselItem'></div> */}
-    </div>
+    <div id="custom" className='custom'>
+      <div className='custom_left'>
+      <ScrollAnimation animateIn="animate__fadeInUp" duration={0.5}>
+        <h1>Work <span className='highlight'>Alongside </span>us <br/><span className='highlight'>Customize</span> your own Computer <br/> and we will <span className='highlight'>Assemble</span> it  </h1>
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="animate__fadeInUp" duration={0.5}>
+        <div className="redirectButton">Custom Pc</div>
+        </ScrollAnimation>
+
+        </div>
+        <div className='custom_right'>
+ <img src="/comp-1.jpg"/>
+ 
+ </div>
+ </div> 
+
   )
 }

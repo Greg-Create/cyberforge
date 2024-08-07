@@ -1,0 +1,83 @@
+.tradein{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: center;
+    margin-top: 5rem;
+    height: 86vh;
+}
+
+.tradein_right{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left:5rem;
+    padding-left: 30px;
+    margin-right: 3rem;
+}
+
+.tradein_right img{
+    height:70%;
+    width:100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.tradein_left{
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start; /* Changed to align items to the start */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.tradein_left h1{
+    text-align: left;
+}
+
+.tradein_left p{
+    cursor: pointer;
+    color:darkblue;
+}
+
+.tradein_left p:hover{
+    opacity: 0.7;
+}
+
+@media only screen and (max-width: 768px) {
+.tradein{
+    flex-direction: column;
+    height:70vh;
+}
+
+.tradein_left h1{
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.tradein_left{
+    align-items: center;
+}
+
+.tradein_right{
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.tradein_right img{
+    margin: 0;
+    width:80%;
+    height:80%;
+}
+
+
+}
