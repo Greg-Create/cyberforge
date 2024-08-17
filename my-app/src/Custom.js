@@ -4,10 +4,13 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ScrollAnimation from 'react-animate-on-scroll';
 import 'animate.css/animate.min.css';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function Custom() {
+  const navigate = useNavigate()
+
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
@@ -32,7 +35,7 @@ export default function Custom() {
         <h1>Work <span className='highlight'>Alongside </span>us <br/><span className='highlight'>Customize</span> your own Computer <br/> and we will <span className='highlight'>Assemble</span> it  </h1>
         </ScrollAnimation>
         <ScrollAnimation animateIn="animate__fadeInUp" duration={0.5}>
-        <div className="redirectButton">Custom Pc</div>
+        <div className="redirectButton" onClick={()=>navigate("/contact")}>Custom Pc</div>
         </ScrollAnimation>
 
         </div>

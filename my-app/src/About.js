@@ -2,8 +2,10 @@ import React from "react";
 import "./About.css"
 import ScrollAnimation from 'react-animate-on-scroll';
 import 'animate.css/animate.min.css';
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
+  const navigate = useNavigate()
   return (
     <div className="About" id="aboutus">
       <div className="about_left">
@@ -12,7 +14,7 @@ export default function About() {
           <h1><span className="highlight">CyberForge </span>is a small company <br/>located in <span className="highlight">Vaughan</span>, Ontario <br/> we build and sell <span className="highlight">Custom</span> Computers </h1>
           </ScrollAnimation>
           <ScrollAnimation animateIn="animate__fadeInUp" duration={0.5}>
-          <div className="redirectButton">About Us</div>
+          <div className="redirectButton" onClick={()=>navigate("/contact")}>About Us</div>
           </ScrollAnimation>
 
       </div>

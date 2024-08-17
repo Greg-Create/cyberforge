@@ -2,8 +2,11 @@ import React from 'react'
 import "./PreBuild.css"
 import ScrollAnimation from 'react-animate-on-scroll';
 import 'animate.css/animate.min.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function PreBuild() {
+  const navigate = useNavigate()
+
   return (
     <div className='prebuild' id="prebuild">
         <div className='prebuild_right'>
@@ -19,7 +22,7 @@ export default function PreBuild() {
         </ScrollAnimation>
         <ScrollAnimation animateIn="animate__fadeInUp" duration={0.5}>
 
-        <div className="redirectButton">Pre-Built</div>
+        <div className="redirectButton" onClick={()=>navigate("/contact")}>Pre-Built</div>
         </ScrollAnimation>
 
         </div>

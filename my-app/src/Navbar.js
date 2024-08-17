@@ -46,10 +46,8 @@ export default function Navbar() {
       </div>
       }
      
-     {
-      isMobileMenuOpen?      <button className="contact-button" onClick={() => { navigate("/contact"); setScrolled(true); setIsMobileMenuOpen(false); }}>Contact Us</button>
-      : ""
-     }
+   <button className="contact-button" onClick={() => { navigate("/contact"); setScrolled(true); setIsMobileMenuOpen(false); }}>Contact Us</button>
+ 
       <button className="hamburger-button" onClick={toggleMobileMenu}>
         ☰
       </button>

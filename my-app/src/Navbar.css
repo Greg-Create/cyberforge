@@ -138,6 +138,9 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow on scroll */
   }
 
+ 
+
+
   @keyframes slideIn {
     0% {
       transform: translateX(100%);
@@ -148,7 +151,7 @@
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1050px) {
     .options{
      display: none;
     }
