@@ -11,7 +11,7 @@ export default function PreBuild() {
     <div className='prebuild' id="prebuild">
         <div className='prebuild_right'>
 
- <img src="/comp-2.jpg"/>
+ <img src="/customComp2.avif"/>
  </div>
  
  

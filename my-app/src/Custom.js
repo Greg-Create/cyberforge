@@ -40,7 +40,7 @@ export default function Custom() {
 
         </div>
         <div className='custom_right'>
- <img src="/comp-1.jpg"/>
+ <img src="/customComp.avif"/>
  
  </div>
  </div> 
