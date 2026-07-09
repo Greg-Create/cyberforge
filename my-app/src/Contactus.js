@@ -3,10 +3,16 @@ import "./contact.css";
 import emailjs from "@emailjs/browser";
 
 const emailJsConfig = {
+  serviceId: "service_ctm9whf",
+  templateId: "template_gui9ofx",
+  publicKey: "ccMLplpXan47fnIJj"
+};
+
+/*const emailJsConfig = {
     serviceId: process.env.REACT_APP_SERVICE_ID || "service_6ig1twk",
     templateId: process.env.REACT_APP_TEMPLATE_ID || "template_yml7zmo",
     publicKey: process.env.REACT_APP_PUBLIC_KEY || "ccMLplpXan47fnIJj"
-}
+}*/
 
 const formatEmailJsError = (error) => {
     if (!error) return ""
