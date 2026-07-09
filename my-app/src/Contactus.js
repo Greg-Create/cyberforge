@@ -8,6 +8,16 @@ const emailJsConfig = {
     publicKey: process.env.REACT_APP_PUBLIC_KEY || "ccMLplpXan47fnIJj"
 }
 
+const formatEmailJsError = (error) => {
+    if (!error) return ""
+
+    if (typeof error === "string") {
+        return ` ${error}`
+    }
+
+    const details = error.text || error.message || error.status || error.error || null
+    return details ? ` ${details}` : ""
+}
 
 export default function Contactus() {
     const [email,setEmail] = useState("")
@@ -57,9 +67,10 @@ export default function Contactus() {
             })
         } catch (error) {
             console.error("Email send failed", error)
+            const errorDetail = formatEmailJsError(error)
             setStatus({
                 type: "error",
-                message: "Sorry, your message could not be sent. Please try again or email cyberforgecomps@gmail.com directly."
+                message: `Sorry, your message could not be sent. Please try again or email cyberforgecomps@gmail.com directly.${errorDetail}`
             })
         } finally {
             setIsSending(false)
