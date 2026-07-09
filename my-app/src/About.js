@@ -19,7 +19,7 @@ export default function About() {
 
       </div>
       <div className="about_right">
-      <img src="/comp-3.jpg"/>
+      <img src="/comp-3.jpg" alt="Custom gaming computer"/>
 
       </div>
       </div>

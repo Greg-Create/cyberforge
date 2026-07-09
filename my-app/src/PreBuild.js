@@ -11,7 +11,7 @@ export default function PreBuild() {
     <div className='prebuild' id="prebuild">
         <div className='prebuild_right'>
 
- <img src="/customComp2.avif"/>
+ <img src="/customComp2.avif" alt="Pre-built gaming computer"/>
  </div>
  
  

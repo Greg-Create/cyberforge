@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./Navbar";
 import Body from "./Body";
@@ -9,9 +8,9 @@ import ScrollAnimation from "react-animate-on-scroll";
 import TradeIn from "./TradeIn";
 import "animate.css/animate.min.css";
 import Repair from "./Repair";
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
-import { useEffect, useMemo } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { useMemo } from "react";
+import { Routes, Route } from "react-router-dom";
 import CustomPage from "./CustomPage";
 import Contactus from "./Contactus";
 

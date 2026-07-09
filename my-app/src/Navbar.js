@@ -34,7 +34,7 @@ export default function Navbar() {
     <div className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {" "}
       <div className="header">
-        <img className="logo" src={"/cyberForge_logo.png"} />
+        <img className="logo" src={"/cyberForge_logo.png"} alt="CyberForge logo" />
         <h1 style={{cursor:"pointer"}} onClick={()=>navigate("/")}>CyberForge</h1>
       </div>
       { <div className={`options`}>

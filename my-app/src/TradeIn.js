@@ -11,7 +11,7 @@ export default function TradeIn() {
     <div className='tradein' id="tradein">
     <div className='tradein_right'>
 
-<img src="/gpu-insert.webp"/>
+<img src="/gpu-insert.webp" alt="Graphics card installation"/>
 </div>
 
 

@@ -18,7 +18,7 @@ export default function Repair() {
         </ScrollAnimation>
     </div>
     <div className="about_right">
-    <img src="/cpu-install.jpg"/>
+    <img src="/cpu-install.jpg" alt="CPU installation"/>
 
     </div>
     </div> )
