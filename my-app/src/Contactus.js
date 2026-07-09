@@ -1,6 +1,12 @@
-import React,{useState} from 'react'
-import "./contact.css"
-import emailjs from "@emailjs/browser"
+import React, { useState } from "react";
+import "./contact.css";
+import emailjs from "@emailjs/browser";
+
+const emailJsConfig = {
+    serviceId: process.env.REACT_APP_SERVICE_ID || "service_6ig1twk",
+    templateId: process.env.REACT_APP_TEMPLATE_ID || "template_yml7zmo",
+    publicKey: process.env.REACT_APP_PUBLIC_KEY || "ccMLplpXan47fnIJj"
+}
 
 
 export default function Contactus() {
@@ -9,11 +15,25 @@ export default function Contactus() {
     const [lastName,setLastName] = useState("")
     const [inquiry,setInquiry] = useState("")
     const [referralCode,setReferralCode] = useState("")
+    const [status,setStatus] = useState(null)
+    const [isSending,setIsSending] = useState(false)
 
 
 
-    const sendEmail = (e) =>{
+    const sendEmail = async (e) =>{
         e.preventDefault()
+        setStatus(null)
+
+        const { serviceId, templateId, publicKey } = emailJsConfig
+
+        if (!serviceId || !templateId || !publicKey) {
+            setStatus({
+                type: "error",
+                message: "The contact form is missing EmailJS setup. Add the EmailJS service ID, template ID, and public key, then rebuild the app."
+            })
+            return
+        }
+
         const templateParams ={
             from_Firstname: firstName,
             from_Lastname: lastName,
@@ -22,16 +42,28 @@ export default function Contactus() {
             email:email,
         }
 
-        emailjs.send(process.env.REACT_APP_SERVICE_ID,process.env.REACT_APP_TEMPLATE_ID,templateParams,process.env.REACT_APP_PUBLIC_KEY).then((response)=>{
-            console.log("Email Send ", response)
+        setIsSending(true)
+
+        try {
+            await emailjs.send(serviceId,templateId,templateParams,publicKey)
             setLastName('')
             setFirstName('')
             setInquiry('')
             setEmail('')
             setReferralCode('')
-        }).catch((error)=>{
-            console.log(error)
-        })
+            setStatus({
+                type: "success",
+                message: "Thanks, your message was sent successfully."
+            })
+        } catch (error) {
+            console.error("Email send failed", error)
+            setStatus({
+                type: "error",
+                message: "Sorry, your message could not be sent. Please try again or email cyberforgecomps@gmail.com directly."
+            })
+        } finally {
+            setIsSending(false)
+        }
     }
   return (
     <div className='contactContainer'>
@@ -72,7 +104,14 @@ export default function Contactus() {
                     <p>Request*</p>
                     <textarea type="text" required value={inquiry} onChange={(e)=>setInquiry(e.target.value)} />
                 </div>
-                <button type="submit">Submit</button>
+                {status && (
+                    <p className={`formStatus ${status.type}`} role="status">
+                        {status.message}
+                    </p>
+                )}
+                <button type="submit" disabled={isSending}>
+                    {isSending ? "Sending..." : "Submit"}
+                </button>
             </form>
          </div>
          </div>
