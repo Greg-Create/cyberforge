@@ -4,7 +4,7 @@ import emailjs from "@emailjs/browser";
 
 const emailJsConfig = {
   serviceId: "service_ctm9whf",
-  templateId: "template_gui9ofx",
+  templateId: "template_yml7zmo",
   publicKey: "ccMLplpXan47fnIJj"
 };
 
