@@ -1,17 +1,14 @@
 import React,{useState} from 'react'
-import { IoLocation } from "react-icons/io5";
-import { FaPhone } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
 import "./contact.css"
 import emailjs from "@emailjs/browser"
 
 
-export default function 
- () {
+export default function Contactus() {
     const [email,setEmail] = useState("")
     const [firstName,setFirstName] = useState("")
     const [lastName,setLastName] = useState("")
     const [inquiry,setInquiry] = useState("")
+    const [referralCode,setReferralCode] = useState("")
 
 
 
@@ -20,7 +17,8 @@ export default function
         const templateParams ={
             from_Firstname: firstName,
             from_Lastname: lastName,
-            message: inquiry,
+            message: referralCode ? `Referral code: ${referralCode}\n\n${inquiry}` : inquiry,
+            referral_code: referralCode,
             email:email,
         }
 
@@ -30,6 +28,7 @@ export default function
             setFirstName('')
             setInquiry('')
             setEmail('')
+            setReferralCode('')
         }).catch((error)=>{
             console.log(error)
         })
@@ -42,14 +41,14 @@ export default function
 
             <div className='contact_left'>
             <div className='contact_logo'>
-            <img src="/cyberForge_logo.png"/>
+            <img src="/cyberForge_logo.png" alt="CyberForge logo"/>
                
          </div>
             <h3>Message Us</h3>
             <p>Want to get in touch with us? Fill out this form <br/> with your inquiry and submit to send us a message</p>
             </div>
             <div className='contact_right'>
-                <div className='box'>
+                <form className='box' onSubmit={sendEmail}>
                     
                 <div className='contact_top'>
                 <div style={{flex:1,marginRight:"0.8rem"}}>
@@ -65,12 +64,16 @@ export default function
                     <p>Email*</p>
                     <input type="email" required value={email} onChange={(e)=>setEmail(e.target.value)}/>
                 </div>
+                <div className='contact_middle'>
+                    <p>Referral code</p>
+                    <input type="text" value={referralCode} onChange={(e)=>setReferralCode(e.target.value)} placeholder="Optional"/>
+                </div>
                 <div className='contact_bottom'>
                     <p>Request*</p>
                     <textarea type="text" required value={inquiry} onChange={(e)=>setInquiry(e.target.value)} />
                 </div>
-                <button onClick={(e)=>sendEmail(e)}>Submit</button>
-            </div>
+                <button type="submit">Submit</button>
+            </form>
          </div>
          </div>
          <div style={{width:"100%",height:"2rem",backgroundColor:"#0087ca", position:'absolute', bottom:"0"}}>
